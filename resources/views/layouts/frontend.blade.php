@@ -42,7 +42,7 @@
                                         <li>
                                             <i class="fa fa-tachometer fa-2x fa-border" aria-hidden="true"></i>
                                                 <small>
-                                                    <a href="{{ route('task.index') }}" class="llamar_registro">Tareas</a>
+                                                    <a href="{{ route('task.index') }}" class="llamar_registro">Gestionar Tareas</a>
                                                     | 
                                                     <a href="{{ route('graficas.index') }}" class="llamar_registro">Graficar</a> 
                                                 </small>

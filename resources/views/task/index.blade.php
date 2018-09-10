@@ -29,25 +29,21 @@
                                     </center>
                                 </div>
                                 <div class="card-body">
-                                    <div class="btn-group" role="group" aria-label="...">
-                                        <a href="{{ route('task.edit',$task->id) }}" class="btn btn-sm btn-info">
-                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                        </a>
-                                        {!!Form::open(['method' => 'DELETE','route' => ['task.destroy', $task->id],'style'=>'display:inline']) !!}
-                                            <button type="submit" name="delete_modal" class="btn btn-sm btn-danger delete" >
-                                                <span class="glyphicon glyphicon-remove " aria-hidden="true"></span>
-                                            </button>
-                                        {!! Form::close() !!}
-
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            
-                                        </li>
-                                        <li>
-                                            
-                                        </li>
-                                    </ul>
+                                    <center>
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <a href="{{ route('task.show',$task->id) }}" class="btn btn-sm btn-warning" target="_blank">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ route('task.edit',$task->id) }}" class="btn btn-sm btn-success">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                            </a>
+                                            {!!Form::open(['method' => 'DELETE','route' => ['task.destroy', $task->id],'style'=>'display:inline']) !!}
+                                                <button type="submit" name="delete_modal" class="btn btn-sm btn-danger delete" >
+                                                    <span class="glyphicon glyphicon-remove " aria-hidden="true"></span>
+                                                </button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </center>
                                 </div>
                             </div>
                         </div>

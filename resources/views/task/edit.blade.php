@@ -37,12 +37,26 @@
                                 <div class="input-group-addon">
                                     <span><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
                                 </div>
-                                <input class="form-control" type="text" name="titulo" placeholder="Titulo" value="{{old('titulo')}}" required>
+                                {!! Form::text('titulo', null, array('placeholder' => 'titulo','class' => 'form-control')) !!}
                             </div>
                             <small>Digite una Tarea</small><br>
                             @if ($errors->has('titulo'))
                                     <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $errors->first('titulo') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span><i class="fa fa-tachometer" aria-hidden="true"></i></span>
+                                </div>
+                                {!! Form::input('color','color',null, array('class' => 'form-control')) !!}
+                            </div>
+                            <small>Escoge un color</small><br>
+                            @if ($errors->has('color'))
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                        <strong>{{ $errors->first('color') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -52,7 +66,7 @@
                                 <div class="input-group-addon">
                                     <span><i class="fa fa-unlock-alt fa-lg" aria-hidden="true"></i></span>
                                 </div>
-                                <textarea class="form-control" name="descripcion" placeholder="Descripcion de la tarea a realizar">{{old('descripcion')}}</textarea>
+                                {!! Form::textarea('descripcion', null, [ 'class' => 'form-control', 'placeholder' => 'Descripcion de la tarea a realizar']) !!}
                             </div>
                             @if ($errors->has('descripcion'))
                                     <span class="invalid-feedback text-danger" role="alert">

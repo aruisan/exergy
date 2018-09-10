@@ -56,11 +56,11 @@ class TasksController extends Controller
     {
     	$update = Task::find($id);
 
-    	if($data->user_id == Auth::user()->id)
+    	if($update->user_id == Auth::user()->id)
     	 {
     	 	$update->titulo = $request->titulo;
 	    	$update->descripcion = $request->descripcion;
-	    	$store->color = $request->color; 
+	    	$update->color = $request->color; 
 	    	$update->save();
 
 	    	return redirect()->route('task.index')
