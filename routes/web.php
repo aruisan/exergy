@@ -12,16 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.frontend');
+    return view('frontend.index');
 });
 
 Auth::routes();
-
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
-
-	
-
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function(){
+	Route::resource('task', 'TasksController');	
 });
 
-dashboard
+
 
