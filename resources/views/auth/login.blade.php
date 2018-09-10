@@ -20,9 +20,9 @@
                                 </div>
                                 <input class="form-control" type="email" name="email" placeholder="Email" value="{{old('email')}}" required autofocus>
                             </div>
-                            <small>Digite su correo electrónico</small>
+                            <small>Digite su correo electrónico</small><br>
                             @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                             @endif
@@ -35,9 +35,9 @@
                                 </div>
                                 <input class="form-control" type="password" name="password" placeholder="Contraseña" required>
                             </div>
-                            <small>Digite su Contraseña</small>
+                            <small>Digite su Contraseña</small><br>
                             @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                             @endif
