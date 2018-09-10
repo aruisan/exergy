@@ -163,6 +163,10 @@ return [
         //collective
         Collective\Html\HtmlServiceProvider::class,
 
+        //char
+        RezaAr\Highcharts\Provider::class,
+
+
     ],
 
     /*
@@ -215,6 +219,9 @@ return [
         //collective
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        //chart
+        'Chart' => RezaAr\Highcharts\Facade::class,
 
     ],
 
