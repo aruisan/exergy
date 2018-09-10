@@ -26,8 +26,8 @@
                                 </a>
                             </div><!--navbar-header-->
                             <div class="collapse navbar-collapse" id="collapse">
-                                <ul class="navbar-nav navbar-right bar-sup">     
-                                    @if(Auth::guest())
+                                @if(Auth::guest())
+                                    <ul class="navbar-nav bar-sup">     
                                         <li>
                                             <i class="fa fa-vcard fa-2x fa-border" aria-hidden="true"></i>
                                                 <small>
@@ -36,22 +36,24 @@
                                                     <a href="{{ url('register') }}" class="llamar_registro">Registrarse</a>
                                                 </small>
                                         </li>
-                                    @else
+                                    </ul>
+                                @else
+                                    <ul class="navbar-nav bar-sup">  
                                         <li>
                                             <i class="fa fa-tachometer fa-2x fa-border" aria-hidden="true"></i>
-                                            <p>Usuarios<br>
                                                 <small>
-                                                    <a href="{{ route('graficas.tareas') }}" class="llamar_registro">Tareas</a>
+                                                    <a href="{{ route('task.index') }}" class="llamar_registro">Tareas</a>
                                                     | 
                                                     <a href="{{ route('graficas.index') }}" class="llamar_registro">Graficar</a> 
                                                 </small>
-                                            </p>
                                         </li>
+                                    </ul>
+                                    <ul class="navbar-nav navbar-right bar-sup">
                                         <li class="dropdown" style="border:1px solid white;">
-                                          @include('layouts.cuerpo.perfil')
+                                              @include('layouts.cuerpo.perfil')
                                         </li>
-                                    @endif
-                                </ul>
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div> <!--collapse-->
@@ -59,6 +61,7 @@
                 <div class="container-fluid">
                     @yield('content')
                 </div>
+        @if(Auth::guest())
             <footer>
                 <h2 hidden>Pie de Pagina</h2>
                 <div class="container-fluid piepag">
@@ -86,6 +89,7 @@
                     </div>
                 </div><!-- container piepag-->
             </footer>
+        @endif
         
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

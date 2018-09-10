@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 use App\Models\Task;
 use Auth;
 
 class TasksController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	$roles = Task::orderBy('id','DESC')->paginate(5);
-        return view('task.index',compact('roles'))
+    	$data = Task::orderBy('id','DESC')->paginate(12);
+        return view('task.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
@@ -25,7 +26,8 @@ class TasksController extends Controller
     	$store =  new Task;
     	$store->titulo = $request->titulo; 	
     	$store->descripcion = $request->descripcion; 	
-    	$store->use_id = Auth::user()->id; 	
+    	$store->color = $request->color; 	
+    	$store->user_id = Auth::user()->id; 	
     	$store->save();
     	return redirect()->route('task.index')
                         ->with('success','Tarea Creada Exitosamente');
@@ -58,6 +60,7 @@ class TasksController extends Controller
     	 {
     	 	$update->titulo = $request->titulo;
 	    	$update->descripcion = $request->descripcion;
+	    	$store->color = $request->color; 
 	    	$update->save();
 
 	    	return redirect()->route('task.index')
